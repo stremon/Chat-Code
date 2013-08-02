@@ -206,9 +206,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // chatcode_blog_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'chatcode_blog_homepage')), array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\DefaultController::indexAction',));
+        if (0 === strpos($pathinfo, '/hello')) {
+            // chatcode_blog_homepage
+            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'chatcode_blog_homepage')), array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\DefaultController::indexAction',));
+            }
+
+            // HelloTheWorld
+            if ($pathinfo === '/hello-world') {
+                return array (  '_controller' => 'ChatcodeBlogBundle:Blog:index',  '_route' => 'HelloTheWorld',);
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
