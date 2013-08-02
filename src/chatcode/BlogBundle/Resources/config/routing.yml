@@ -2,5 +2,5 @@ chatcode_blog_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: ChatcodeBlogBundle:Default:index }
 HelloTheWorld:
-    pattern:  /hello-world
+    pattern:  /hello-world/{name}
     defaults: { _controller: ChatcodeBlogBundle:Blog:index }

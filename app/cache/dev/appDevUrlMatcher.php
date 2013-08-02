@@ -213,8 +213,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             // HelloTheWorld
-            if ($pathinfo === '/hello-world') {
-                return array (  '_controller' => 'ChatcodeBlogBundle:Blog:index',  '_route' => 'HelloTheWorld',);
+            if (0 === strpos($pathinfo, '/hello-world') && preg_match('#^/hello\\-world/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'HelloTheWorld')), array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::indexAction',));
             }
 
         }
