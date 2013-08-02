@@ -4,3 +4,6 @@ chatcode_blog_homepage:
 HelloTheWorld:
     pattern:  /hello-world/{name}
     defaults: { _controller: ChatcodeBlogBundle:Blog:index }
+ByebyeWorld:
+    pattern:  /byebye-world/{name}
+    defaults: { _controller: ChatcodeBlogBundle:Blog:index }
