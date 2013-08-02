@@ -1,0 +1,7 @@
+parameters:
+#    chatcode_blog.example.class: chatcode\BlogBundle\Example
+
+services:
+#    chatcode_blog.example:
+#        class: %chatcode_blog.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -5,3 +5,6 @@
 1c5548fc80145a81af9e9ed0adc5c1125ac62310,127.0.0.1,POST,http://localhost/Chat-Code/web/app_dev.php/_configurator/step/1,1370017271,
 6e8e7c38f3f382dcaba2320963b448a6563fd7f9,127.0.0.1,GET,http://localhost/Chat-Code/web/app_dev.php/_configurator/final,1370017272,
 7fa19164cc7bba268997843977b065b36e7c5aba,127.0.0.1,GET,http://localhost/Chat-Code/web/app_dev.php/,1370017279,
+6db3843ef8be8771abef79b5971c4162c2742261,::1,GET,http://localhost/Chat-Code/web/app_dev.php/,1375473841,
+32e80c80dc185a04254772e65f6b4772926b1e16,::1,GET,http://localhost/Chat-Code/web/app_dev.php/hello/winzou,1375475665,
+4b1c70a56d80a4cc2939ccf9e65035a7480bb819,::1,GET,http://localhost/Chat-Code/web/app_dev.php/hello/winzou,1375476718,
