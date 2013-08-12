@@ -1,9 +1,12 @@
-chatcode_blog_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: ChatcodeBlogBundle:Default:index }
-HelloTheWorld:
-    pattern:  /hello-world/{name}
+chatcodeblog_home:
+    pattern:  /
     defaults: { _controller: ChatcodeBlogBundle:Blog:index }
-ByebyeWorld:
-    pattern:  /byebye-world/{name}
-    defaults: { _controller: ChatcodeBlogBundle:Blog:index }
+chatcodeblog_tips:
+    pattern:  /astuces
+    defaults: { _controller: ChatcodeBlogBundle:Blog:tips }
+chatcodeblog_tip:
+    pattern:  /astuces/{slug}
+    defaults: { _controller: ChatcodeBlogBundle:Blog:tip }
+chatcodeblog_sites:
+    pattern:  /sites-du-jour
+    defaults: { _controller: ChatcodeBlogBundle:Blog:sites }

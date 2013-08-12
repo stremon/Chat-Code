@@ -133,22 +133,29 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/hello')) {
-            // chatcode_blog_homepage
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'chatcode_blog_homepage')), array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\DefaultController::indexAction',));
+        if (0 === strpos($pathinfo, '/blog')) {
+            // chatcodeblog_home
+            if (rtrim($pathinfo, '/') === '/blog') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'chatcodeblog_home');
+                }
+
+                return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::indexAction',  '_route' => 'chatcodeblog_home',);
             }
 
-            // HelloTheWorld
-            if (0 === strpos($pathinfo, '/hello-world') && preg_match('#^/hello\\-world/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'HelloTheWorld')), array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::indexAction',));
+            if (0 === strpos($pathinfo, '/blog/a')) {
+                // chatcodeblog_see
+                if (0 === strpos($pathinfo, '/blog/article') && preg_match('#^/blog/article/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'chatcodeblog_see')), array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::seeAction',));
+                }
+
+                // chatcodeblog_add
+                if (0 === strpos($pathinfo, '/blog/ajouter') && preg_match('#^/blog/ajouter/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'chatcodeblog_add')), array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::addAction',));
+                }
+
             }
 
-        }
-
-        // ByebyeWorld
-        if (0 === strpos($pathinfo, '/byebye-world') && preg_match('#^/byebye\\-world/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'ByebyeWorld')), array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::indexAction',));
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
