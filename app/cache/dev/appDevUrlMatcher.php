@@ -143,17 +143,22 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::indexAction',  '_route' => 'chatcodeblog_home',);
             }
 
-            if (0 === strpos($pathinfo, '/blog/a')) {
-                // chatcodeblog_see
-                if (0 === strpos($pathinfo, '/blog/article') && preg_match('#^/blog/article/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'chatcodeblog_see')), array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::seeAction',));
+            if (0 === strpos($pathinfo, '/blog/astuces')) {
+                // chatcodeblog_tips
+                if ($pathinfo === '/blog/astuces') {
+                    return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_tips',);
                 }
 
-                // chatcodeblog_add
-                if (0 === strpos($pathinfo, '/blog/ajouter') && preg_match('#^/blog/ajouter/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'chatcodeblog_add')), array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::addAction',));
+                // chatcodeblog_tip
+                if (preg_match('#^/blog/astuces/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'chatcodeblog_tip')), array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipAction',));
                 }
 
+            }
+
+            // chatcodeblog_sites
+            if ($pathinfo === '/blog/sites-du-jour') {
+                return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::sitesAction',  '_route' => 'chatcodeblog_sites',);
             }
 
         }

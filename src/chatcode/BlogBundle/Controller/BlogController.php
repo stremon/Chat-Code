@@ -15,4 +15,9 @@ class BlogController extends Controller
     {
         return $this->render('ChatcodeBlogBundle:Blog:see.html.twig', array('id'=>$id));
     }
+    
+    public function tipsAction()
+    {
+        return $this->render('ChatcodeBlogBundle:Blog:tips.html.twig');
+    }
 }
