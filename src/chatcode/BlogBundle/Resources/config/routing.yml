@@ -4,6 +4,9 @@ chatcodeblog_home:
 chatcodeblog_tips:
     pattern:  /astuces
     defaults: { _controller: ChatcodeBlogBundle:Blog:tips }
+chatcodeblog_addtips:
+    pattern:  /ajouter
+    defaults: { _controller: ChatcodeBlogBundle:Blog:addtips }
 chatcodeblog_tip:
     pattern:  /astuces/{slug}
     defaults: { _controller: ChatcodeBlogBundle:Blog:tip }

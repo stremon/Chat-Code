@@ -143,14 +143,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::indexAction',  '_route' => 'chatcodeblog_home',);
             }
 
-            if (0 === strpos($pathinfo, '/blog/astuces')) {
+            if (0 === strpos($pathinfo, '/blog/a')) {
                 // chatcodeblog_tips
                 if ($pathinfo === '/blog/astuces') {
                     return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_tips',);
                 }
 
+                // chatcodeblog_addtips
+                if ($pathinfo === '/blog/ajouter') {
+                    return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::addtipsAction',  '_route' => 'chatcodeblog_addtips',);
+                }
+
                 // chatcodeblog_tip
-                if (preg_match('#^/blog/astuces/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+                if (0 === strpos($pathinfo, '/blog/astuces') && preg_match('#^/blog/astuces/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'chatcodeblog_tip')), array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipAction',));
                 }
 

@@ -59,7 +59,7 @@ class Article
     /**
      * Constructeur
      */
-    public function __construction()
+    public function __construct()
     {
         //Par défaut, la date est la date d'aujourd'hui
         $this->date = new \DateTime();
