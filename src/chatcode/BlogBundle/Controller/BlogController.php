@@ -4,6 +4,7 @@ namespace chatcode\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use chatcode\BlogBundle\Entity\Article;
+use chatcode\BlogBundle\Entity\Comment;
 
 class BlogController extends Controller
 {
@@ -22,7 +23,8 @@ class BlogController extends Controller
         {
             throw $this->createNotFoundException('Article inexistant...');
         }
-        return $this->render('ChatcodeBlogBundle:Blog:see.html.twig', array('article'=>$article));
+        $list_comm = $em->getRepository('ChatcodeBlogBundle:Comment')->findAll();
+        return $this->render('ChatcodeBlogBundle:Blog:see.html.twig', array('article'=>$article, 'list_comm'=>$list_comm));
     }
     
     public function tipsAction()
@@ -33,12 +35,18 @@ class BlogController extends Controller
     public function addtipsAction()
     {
         $article = new Article();
-        $article->setTitle('Mon premier article');
-        $article->setText('blablablbalblablabl.');
-        $article->setSlug('first');
+        $article->setTitle('Mon second article');
+        $article->setText('ugugygu blablablbalblablabl.');
+        $article->setSlug('second');
+        
+        $comm = new Comment();
+        $comm->setAuthor('Estelle');
+        $comm->setMessage('yo');
+        $comm->setArticle($article);
         
         $em = $this->getDoctrine()->getManager();
         $em->persist($article);
+        $em->persist($comm);
         $em->flush();
         
         if($this->getRequest()->getMethod() == 'POST')

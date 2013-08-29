@@ -55,6 +55,7 @@ class Article
      * @ORM\Column(name="publication", type="boolean")
      */
     private $publication;
+    
 
     /**
      * Constructeur
@@ -65,7 +66,6 @@ class Article
         $this->date = new \DateTime();
         $this->publication = true;
     }
-
 
     /**
      * Get id
