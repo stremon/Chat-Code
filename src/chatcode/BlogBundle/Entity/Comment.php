@@ -12,6 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Comment
 {
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="chatcode\BlogBundle\Entity\Article")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $article;
+    
     /**
      * @var integer
      *
@@ -49,13 +56,28 @@ class Comment
      */
     private $status;
     
+
     /**
-     * @ORM\ManyToOne(targetEntity="chatcode\BlogBundle\Entity\Article")
-     * @ORM\JoinColumn(nullable=false)
+     * Set Article
+     * 
+     * @param Chatcode\BlogBundle\Entity\Article $article
      */
-    private $article;
-
-
+    public function setArticle(\chatcode\BlogBundle\Entity\Article $article)
+    {
+        $this->article = $article;
+    }
+    
+    /**
+     * Get Article
+     * 
+     * @return Chatcode\BlogBundle\Entity\Article
+     */
+    public function getArticle()
+    {
+        return $this->article;
+    }
+    
+    
     /**
      * Get id
      *
@@ -156,5 +178,28 @@ class Comment
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Set test
+     *
+     * @param integer $test
+     * @return Comment
+     */
+    public function setTest($test)
+    {
+        $this->test = $test;
+    
+        return $this;
+    }
+
+    /**
+     * Get test
+     *
+     * @return integer 
+     */
+    public function getTest()
+    {
+        return $this->test;
     }
 }

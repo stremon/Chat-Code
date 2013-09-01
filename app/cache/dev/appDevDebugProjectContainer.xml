@@ -481,8 +481,8 @@
     <parameter key="jms_di_extra.disable_grep">false</parameter>
     <parameter key="jms_di_extra.doctrine_integration">true</parameter>
     <parameter key="jms_di_extra.cache_warmer.controller_file_blacklist" type="collection"/>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">C:/xampp/htdocs/Chat-Code/app/cache/dev/jms_diextra/doctrine/EntityManager_521fbb12cd5f5.php</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager521fbb12cd5f5_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">C:/xampp/htdocs/Chat-Code/app/cache/dev/jms_diextra/doctrine/EntityManager_52210ad184a0f.php</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager52210ad184a0f_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
     <parameter key="security.secured_services" type="collection"/>
     <parameter key="security.access.method_interceptor.class">JMS\SecurityExtraBundle\Security\Authorization\Interception\MethodSecurityInterceptor</parameter>
     <parameter key="security.access.method_access_control" type="collection"/>
@@ -2248,8 +2248,8 @@
     <service id="doctrine.orm.default_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
       <argument type="collection"/>
     </service>
-    <service id="doctrine.orm.default_entity_manager" class="EntityManager521fbb12cd5f5_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
-      <file>C:/xampp/htdocs/Chat-Code/app/cache/dev/jms_diextra/doctrine/EntityManager_521fbb12cd5f5.php</file>
+    <service id="doctrine.orm.default_entity_manager" class="EntityManager52210ad184a0f_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>C:/xampp/htdocs/Chat-Code/app/cache/dev/jms_diextra/doctrine/EntityManager_52210ad184a0f.php</file>
       <argument type="service">
         <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
           <argument type="service" id="doctrine.dbal.default_connection"/>
@@ -2292,13 +2292,11 @@
                   <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false">
                     <call method="addDriver">
                       <argument type="service">
-                        <service class="Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver" public="false">
+                        <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                          <argument type="service" id="annotation_reader"/>
                           <argument type="collection">
-                            <argument key="C:\xampp\htdocs\Chat-Code\src\chatcode\BlogBundle\Resources\config\doctrine">chatcode\BlogBundle\Entity</argument>
+                            <argument>C:\xampp\htdocs\Chat-Code\src\chatcode\BlogBundle\Entity</argument>
                           </argument>
-                          <call method="setGlobalBasename">
-                            <argument>mapping</argument>
-                          </call>
                         </service>
                       </argument>
                       <argument>chatcode\BlogBundle\Entity</argument>
