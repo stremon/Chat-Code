@@ -56,6 +56,11 @@ class Article
      */
     private $publication;
     
+    /**
+     *  @ORM\ManyToMany(targetEntity="chatcode\BlogBundle\Entity\Category", cascade={"persist"})
+     */
+    private $categories;
+    
 
     /**
      * Constructeur
@@ -190,5 +195,38 @@ class Article
     public function getPublication()
     {
         return $this->publication;
+    }
+
+    /**
+     * Add categories
+     *
+     * @param \chatcode\BlogBundle\Entity\Category $categories
+     * @return Article
+     */
+    public function addCategorie(\chatcode\BlogBundle\Entity\Category $categories)
+    {
+        $this->categories[] = $categories;
+    
+        return $this;
+    }
+
+    /**
+     * Remove categories
+     *
+     * @param \chatcode\BlogBundle\Entity\Category $categories
+     */
+    public function removeCategorie(\chatcode\BlogBundle\Entity\Category $categories)
+    {
+        $this->categories->removeElement($categories);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }

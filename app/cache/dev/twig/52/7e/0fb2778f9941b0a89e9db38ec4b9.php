@@ -404,7 +404,7 @@ class __TwigTemplate_527e0fb2778f9941b0a89e9db38ec4b9 extends Twig_Template
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['name'], $context['_parent'], $context['loop']);
-            $context = array_merge($_parent, array_intersect_key($context, $_parent));
+            $context = array_intersect_key($context, $_parent) + $_parent;
             // line 183
             echo "        </table>
     ";

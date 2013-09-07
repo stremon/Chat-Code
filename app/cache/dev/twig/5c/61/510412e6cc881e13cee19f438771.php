@@ -41,7 +41,7 @@ class __TwigTemplate_5c61510412e6cc881e13cee19f438771 extends Twig_Template
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['log'], $context['_parent'], $context['loop']);
-        $context = array_merge($_parent, array_intersect_key($context, $_parent));
+        $context = array_intersect_key($context, $_parent) + $_parent;
         // line 7
         echo "</ol>
 ";

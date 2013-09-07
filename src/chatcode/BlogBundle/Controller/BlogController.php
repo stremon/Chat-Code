@@ -29,7 +29,16 @@ class BlogController extends Controller
     
     public function tipsAction()
     {
-        return $this->render('ChatcodeBlogBundle:Blog:tips.html.twig');
+        $em = $this->getDoctrine()
+                    ->getManager();
+        
+        $tips = $em->getRepository('ChatcodeBlogBundle:Article')->findAll();
+                
+        $categories = $em->getRepository('ChatcodeBlogBundle:Category')
+                                ->findAll();
+        
+        
+        return $this->render('ChatcodeBlogBundle:Blog:tips.html.twig', array('tips'=>$tips, 'categories'=>$categories));
     }
     
     public function addtipsAction()

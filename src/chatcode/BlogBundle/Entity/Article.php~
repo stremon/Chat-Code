@@ -55,17 +55,22 @@ class Article
      * @ORM\Column(name="publication", type="boolean")
      */
     private $publication;
+    
+    /**
+     *  @ORM\ManyToMany(targetEntity="chatcode\BlogBundle\Entity\Category", cascade={"persist"})
+     */
+    private $categories;
+    
 
     /**
      * Constructeur
      */
-    public function __construction()
+    public function __construct()
     {
         //Par défaut, la date est la date d'aujourd'hui
         $this->date = new \DateTime();
         $this->publication = true;
     }
-
 
     /**
      * Get id
@@ -167,5 +172,28 @@ class Article
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Set publication
+     *
+     * @param boolean $publication
+     * @return Article
+     */
+    public function setPublication($publication)
+    {
+        $this->publication = $publication;
+    
+        return $this;
+    }
+
+    /**
+     * Get publication
+     *
+     * @return boolean 
+     */
+    public function getPublication()
+    {
+        return $this->publication;
     }
 }

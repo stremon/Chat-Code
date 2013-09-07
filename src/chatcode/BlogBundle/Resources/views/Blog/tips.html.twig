@@ -1,12 +1,35 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Le Hello World de Symfony 2</title>
-    </head>
-    <body>
-        <h1>Hello !</h1>
-        <p>
-            SEE
-        </p>
-    </body>
-</html>
+{%extends "ChatcodeBlogBundle::layout.html.twig" %}
+
+{% block title %}
+    Astuces  - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    
+<section class="sidebar">
+    {% if categories %}
+        <ul>
+        {% for category in categories %}
+            <li>{{ category.name }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</section>
+    
+<section class="tips">  
+    <h1>Astuces</h1>
+    {% if tips %}
+        {% for tip in tips %}
+            <article>
+                <header>
+                    <h2>{{ tip.title }}</h2>
+                </header>
+                <div class="post-content">
+                    {{ tip.text }}
+                </div>
+            </article>
+        {% endfor %}
+    {% endif %}
+</section>
+    
+{% endblock %}

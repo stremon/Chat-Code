@@ -1,4 +1,14 @@
 chatcode_blog:
     resource: "@ChatcodeBlogBundle/Resources/config/routing.yml"
     prefix:   /blog
+    
+login:
+  pattern: /login
+  defaults: { _controller: ChatcodeUserBundle:Security:login }
+  
+login_check:
+   pattern: /login_check
+   
+logout:
+  pattern: /logout
 

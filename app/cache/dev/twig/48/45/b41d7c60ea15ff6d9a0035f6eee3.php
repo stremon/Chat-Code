@@ -24,7 +24,7 @@ class __TwigTemplate_4845b41d7c60ea15ff6d9a0035f6eee3 extends Twig_Template
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 3
-        $context["__internal_2b443d5ef77ac74c47a21cce834a692b10636b40"] = $this;
+        $context["__internal_834a5205163751eed61a9e035326f6faf17d9196"] = $this;
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -84,14 +84,14 @@ class __TwigTemplate_4845b41d7c60ea15ff6d9a0035f6eee3 extends Twig_Template
             echo "</code></td>
                 <td><code>";
             // line 34
-            echo $context["__internal_2b443d5ef77ac74c47a21cce834a692b10636b40"]->getdisplay_listener((isset($context["listener"]) ? $context["listener"] : $this->getContext($context, "listener")));
+            echo $context["__internal_834a5205163751eed61a9e035326f6faf17d9196"]->getdisplay_listener((isset($context["listener"]) ? $context["listener"] : $this->getContext($context, "listener")));
             echo "</code></td>
             </tr>
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['listener'], $context['_parent'], $context['loop']);
-        $context = array_merge($_parent, array_intersect_key($context, $_parent));
+        $context = array_intersect_key($context, $_parent) + $_parent;
         // line 37
         echo "    </table>
 
@@ -122,14 +122,14 @@ class __TwigTemplate_4845b41d7c60ea15ff6d9a0035f6eee3 extends Twig_Template
                 echo "</code></td>
                     <td><code>";
                 // line 51
-                echo $context["__internal_2b443d5ef77ac74c47a21cce834a692b10636b40"]->getdisplay_listener($this->getAttribute((isset($context["listeners"]) ? $context["listeners"] : $this->getContext($context, "listeners")), (isset($context["listener"]) ? $context["listener"] : $this->getContext($context, "listener")), array(), "array"));
+                echo $context["__internal_834a5205163751eed61a9e035326f6faf17d9196"]->getdisplay_listener($this->getAttribute((isset($context["listeners"]) ? $context["listeners"] : $this->getContext($context, "listeners")), (isset($context["listener"]) ? $context["listener"] : $this->getContext($context, "listener")), array(), "array"));
                 echo "</code></td>
                 </tr>
             ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['listener'], $context['_parent'], $context['loop']);
-            $context = array_merge($_parent, array_intersect_key($context, $_parent));
+            $context = array_intersect_key($context, $_parent) + $_parent;
             // line 54
             echo "        </table>
     ";
