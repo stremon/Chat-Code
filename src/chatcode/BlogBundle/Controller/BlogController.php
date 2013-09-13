@@ -10,7 +10,12 @@ class BlogController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('ChatcodeBlogBundle:Blog:index.html.twig');
+        $em = $this->getDoctrine()
+                    ->getManager();
+        
+        $news = $em->getRepository('ChatcodeBlogBundle:News')->findAll();
+        
+        return $this->render('ChatcodeBlogBundle:Blog:index.html.twig', array('news' => $news));
     }
     
     public function tipAction($slug)

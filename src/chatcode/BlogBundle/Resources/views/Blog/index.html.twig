@@ -5,5 +5,20 @@
 {% endblock %}
 
 {% block body %}
-    INDEX
+    <section class="tips">  
+        <h1>Actus</h1>
+        {% if news %}
+            {% for anews in news %}
+                <article>
+                    <header>
+                        <h2><a href="{{ path('chatcode', anews.slug) }}" title="{{ anews.title }}">{{ anews.title }}</a></h2>
+                        <time>{{ anews.date|date('d/m/Y') }}</time>
+                    </header>
+                    <div class="post-content">
+                        {{ anews.text }}
+                    </div>
+                </article>
+            {% endfor %}
+        {% endif %}
+    </section>
 {% endblock %}
