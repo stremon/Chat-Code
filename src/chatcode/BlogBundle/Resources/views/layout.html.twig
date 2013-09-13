@@ -5,6 +5,11 @@
         <title>{% block title %}chat-code.com : le site où chat code dur !{% endblock %}</title>
     </head>
     <body>
+        
+        <div id="menu">
+            {{ render(controller("ChatcodeBlogBundle:Menu:menu")) }}
+        </div>
+        
         {% block body %}
         {% endblock %}
     </body>
