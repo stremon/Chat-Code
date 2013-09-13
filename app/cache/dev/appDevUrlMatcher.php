@@ -143,6 +143,31 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::indexAction',  '_route' => 'chatcodeblog_home',);
             }
 
+            // chatcodeblog_news
+            if ($pathinfo === '/blog/actus') {
+                return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_news',);
+            }
+
+            // chatcodeblog_website
+            if ($pathinfo === '/blog/site-du-jour') {
+                return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_website',);
+            }
+
+            // chatcodeblog_tutorials
+            if ($pathinfo === '/blog/tutoriels') {
+                return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_tutorials',);
+            }
+
+            // chatcodeblog_resources
+            if ($pathinfo === '/blog/ressources') {
+                return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_resources',);
+            }
+
+            // chatcodeblog_contact
+            if ($pathinfo === '/blog/contact') {
+                return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_contact',);
+            }
+
             if (0 === strpos($pathinfo, '/blog/a')) {
                 // chatcodeblog_tips
                 if ($pathinfo === '/blog/astuces') {

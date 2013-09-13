@@ -2,7 +2,7 @@
     <ul>
         {% for item in menu %}
             <li>
-                <a href="{{ path(item.path) }}" title="{{ menu.titre }}">{{ menu.titre }}</a>
+                <a href="{{ path(item.path) }}" title="{{ item.title }}">{{ item.title }}</a>
             </li>
         {% endfor %}
     </ul>

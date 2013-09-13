@@ -6,11 +6,15 @@
     </head>
     <body>
         
-        <div id="menu">
-            {{ render(controller("ChatcodeBlogBundle:Menu:menu")) }}
-        </div>
+        <header>
+            {{ render(controller("ChatcodeBlogBundle:Menu:menuHeader")) }}
+        </header>
         
         {% block body %}
         {% endblock %}
+        
+        <footer>
+            {{ render(controller("ChatcodeBlogBundle:Menu:menuFooter")) }}
+        </footer>
     </body>
 </html>

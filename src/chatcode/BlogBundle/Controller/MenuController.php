@@ -6,15 +6,23 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class MenuController extends Controller
 {
-    public function menuAction()
+    public function menuHeaderAction()
     {
         $menu = array(
-            array('id' => 2, 'titre' => 'Actus', 'path' => 'actus'),
-            array('id' => 3, 'titre' => 'Astuces', 'path' => 'astuces'),
-            array('id' => 4, 'titre' => 'Sites du jour', 'path' => 'sites-du-jour'),
-            array('id' => 5, 'titre' => 'Tutoriels', 'path' => 'tutoriels'),
-            array('id' => 6, 'titre' => 'Ressources', 'path' => 'ressources'),
+            array('id' => 2, 'title' => 'Actus', 'path' => 'chatcodeblog_news'),
+            array('id' => 3, 'title' => 'Astuces', 'path' => 'chatcodeblog_tips'),
+            array('id' => 4, 'title' => 'Site du jour', 'path' => 'chatcodeblog_websites'),
+            array('id' => 5, 'title' => 'Tutoriels', 'path' => 'chatcodeblog_tutorials'),
+            array('id' => 6, 'title' => 'Ressources', 'path' => 'chatcodeblog_resources'),
         );
-        return $this->render('ChatcodeBlogBundle:Menu:menu.html.twig', array('menu' => $menu));
+        return $this->render('ChatcodeBlogBundle:Menu:menu-header.html.twig', array('menu' => $menu));
+    }
+    
+    public function menuFooterAction()
+    {
+        $menu = array(
+            array('id' => 2, 'title' => 'Contact', 'path' => 'chatcodeblog_contact'),
+        );
+        return $this->render('ChatcodeBlogBundle:Menu:menu-footer.html.twig', array('menu' => $menu));
     }
 }

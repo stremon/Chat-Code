@@ -1,8 +1,11 @@
 <nav>
     <ul>
+        <li>
+            &copy 2011-2013 Estelle Guémann
+        </li>
         {% for item in menu %}
             <li>
-                <a href="{{ path(item.path) }}" title="{{ menu.titre }}">{{ menu.titre }}</a>
+                <a href="{{ path(item.path) }}" title="{{ item.title }}">{{ item.title }}</a>
             </li>
         {% endfor %}
     </ul>

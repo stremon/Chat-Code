@@ -1,6 +1,21 @@
 chatcodeblog_home:
     pattern:  /
     defaults: { _controller: ChatcodeBlogBundle:Blog:index }
+chatcodeblog_news:
+    pattern:  /actus
+    defaults: { _controller: ChatcodeBlogBundle:Blog:tips }
+chatcodeblog_website:
+    pattern:  /site-du-jour
+    defaults: { _controller: ChatcodeBlogBundle:Blog:tips }
+chatcodeblog_tutorials:
+    pattern:  /tutoriels
+    defaults: { _controller: ChatcodeBlogBundle:Blog:tips }
+chatcodeblog_resources:
+    pattern:  /ressources
+    defaults: { _controller: ChatcodeBlogBundle:Blog:tips }
+chatcodeblog_contact:
+    pattern:  /contact
+    defaults: { _controller: ChatcodeBlogBundle:Blog:tips }
 chatcodeblog_tips:
     pattern:  /astuces
     defaults: { _controller: ChatcodeBlogBundle:Blog:tips }
