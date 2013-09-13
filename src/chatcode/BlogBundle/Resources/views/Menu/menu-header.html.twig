@@ -1,0 +1,9 @@
+<nav>
+    <ul>
+        {% for item in menu %}
+            <li>
+                <a href="{{ path(item.path) }}" title="{{ menu.titre }}">{{ menu.titre }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>
