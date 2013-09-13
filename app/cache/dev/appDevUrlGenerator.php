@@ -35,6 +35,10 @@ class appDevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
         'chatcodeblog_addtips' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::addtipsAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/blog/ajouter',    ),  ),  4 =>   array (  ),),
         'chatcodeblog_tip' => array (  0 =>   array (    0 => 'slug',  ),  1 =>   array (    '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'variable',      1 => '/',      2 => '[^/]++',      3 => 'slug',    ),    1 =>     array (      0 => 'text',      1 => '/blog/astuces',    ),  ),  4 =>   array (  ),),
         'chatcodeblog_sites' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::sitesAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/blog/sites-du-jour',    ),  ),  4 =>   array (  ),),
+        'login' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Chatcode\\UserBundle\\Controller\\SecurityController::loginAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/login',    ),  ),  4 =>   array (  ),),
+        'index' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Chatcode\\UserBundle\\Controller\\SecurityController::loginAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/',    ),  ),  4 =>   array (  ),),
+        'login_check' => array (  0 =>   array (  ),  1 =>   array (  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/login_check',    ),  ),  4 =>   array (  ),),
+        'logout' => array (  0 =>   array (  ),  1 =>   array (  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/logout',    ),  ),  4 =>   array (  ),),
     );
 
     /**

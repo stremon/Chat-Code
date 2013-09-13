@@ -168,6 +168,33 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // login
+        if ($pathinfo === '/login') {
+            return array (  '_controller' => 'Chatcode\\UserBundle\\Controller\\SecurityController::loginAction',  '_route' => 'login',);
+        }
+
+        // index
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'index');
+            }
+
+            return array (  '_controller' => 'Chatcode\\UserBundle\\Controller\\SecurityController::loginAction',  '_route' => 'index',);
+        }
+
+        if (0 === strpos($pathinfo, '/log')) {
+            // login_check
+            if ($pathinfo === '/login_check') {
+                return array('_route' => 'login_check');
+            }
+
+            // logout
+            if ($pathinfo === '/logout') {
+                return array('_route' => 'logout');
+            }
+
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

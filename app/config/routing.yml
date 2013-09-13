@@ -6,6 +6,10 @@ login:
   pattern: /login
   defaults: { _controller: ChatcodeUserBundle:Security:login }
   
+index:
+  pattern: /
+  defaults: { _controller: ChatcodeUserBundle:Security:login }
+  
 login_check:
    pattern: /login_check
    
