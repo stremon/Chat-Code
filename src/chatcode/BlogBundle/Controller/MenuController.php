@@ -11,7 +11,7 @@ class MenuController extends Controller
         $menu = array(
             array('id' => 2, 'title' => 'Actus', 'path' => 'chatcodeblog_news'),
             array('id' => 3, 'title' => 'Astuces', 'path' => 'chatcodeblog_tips'),
-            array('id' => 4, 'title' => 'Site du jour', 'path' => 'chatcodeblog_websites'),
+            array('id' => 4, 'title' => 'Site du jour', 'path' => 'chatcodeblog_website'),
             array('id' => 5, 'title' => 'Tutoriels', 'path' => 'chatcodeblog_tutorials'),
             array('id' => 6, 'title' => 'Ressources', 'path' => 'chatcodeblog_resources'),
         );
