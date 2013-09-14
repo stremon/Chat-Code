@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}chat-code.com : le site où chat code dur !{% endblock %}</title>
+    </head>
+    <body>
+        
+        <header>
+            <h1>ADMIN</h1>
+            <a href="{{ path('chatcodeblog_home') }}">chat-code.com</a>
+        </header>
+        
+        {% block body %}
+        {% endblock %}
+        
+        <footer>
+            &copy 2013 Estelle
+        </footer>
+    </body>
+</html>

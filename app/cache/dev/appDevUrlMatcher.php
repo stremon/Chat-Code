@@ -201,6 +201,15 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // chatcodeadmin_home
+        if (rtrim($pathinfo, '/') === '/admin') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'chatcodeadmin_home');
+            }
+
+            return array (  '_controller' => 'Chatcode\\AdminBundle\\Controller\\AdminController::indexAction',  '_route' => 'chatcodeadmin_home',);
+        }
+
         // login
         if ($pathinfo === '/login') {
             return array (  '_controller' => 'Chatcode\\UserBundle\\Controller\\SecurityController::loginAction',  '_route' => 'login',);
