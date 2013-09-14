@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new chatcode\BlogBundle\ChatcodeBlogBundle(),
             new Chatcode\UserBundle\ChatcodeUserBundle(),
+            new Chatcode\AdminBundle\ChatcodeAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

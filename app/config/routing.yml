@@ -2,6 +2,10 @@ chatcode_blog:
     resource: "@ChatcodeBlogBundle/Resources/config/routing.yml"
     prefix:   /blog
     
+chatcode_admin:
+    resource: "@ChatcodeAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+    
 login:
   pattern: /login
   defaults: { _controller: ChatcodeUserBundle:Security:login }
