@@ -4,6 +4,9 @@ chatcodeblog_home:
 chatcodeblog_news:
     pattern:  /actus
     defaults: { _controller: ChatcodeBlogBundle:Blog:index }
+chatcodeblog_anews:
+    pattern:  /actus/{slug}
+    defaults: { _controller: ChatcodeBlogBundle:Blog:anews }
 chatcodeblog_website:
     pattern:  /site-du-jour
     defaults: { _controller: ChatcodeBlogBundle:Blog:tips }

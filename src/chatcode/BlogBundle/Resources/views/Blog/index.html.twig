@@ -11,7 +11,7 @@
             {% for anews in news %}
                 <article>
                     <header>
-                        <h2><a href="{{ path('chatcode', anews.slug) }}" title="{{ anews.title }}">{{ anews.title }}</a></h2>
+                        <h2><a href="{{ path('chatcodeblog_anews', {'slug':anews.slug}) }}" title="{{ anews.title }}">{{ anews.title }}</a></h2>
                         <time>{{ anews.date|date('d/m/Y') }}</time>
                     </header>
                     <div class="post-content">

@@ -1,0 +1,25 @@
+{%extends "ChatcodeBlogBundle::layout.html.twig" %}
+
+{% block title %}
+    Actualités  - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    
+<section class="news">  
+    <h1>Actus</h1>
+    {% if news %}
+        {% for anews in news %}
+            <article>
+                <header>
+                    <h2>{{ anews.title }}</h2>
+                </header>
+                <div class="post-content">
+                    {{ anews.text }}
+                </div>
+            </article>
+        {% endfor %}
+    {% endif %}
+</section>
+    
+{% endblock %}

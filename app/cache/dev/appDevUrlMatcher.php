@@ -143,6 +143,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::indexAction',  '_route' => 'chatcodeblog_home',);
             }
 
+            if (0 === strpos($pathinfo, '/blog/actus')) {
+                // chatcodeblog_news
+                if ($pathinfo === '/blog/actus') {
+                    return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::indexAction',  '_route' => 'chatcodeblog_news',);
+                }
+
+                // chatcodeblog_anews
+                if (preg_match('#^/blog/actus/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'chatcodeblog_anews')), array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::anewsAction',));
+                }
+
+            }
+
             // chatcodeblog_website
             if ($pathinfo === '/blog/site-du-jour') {
                 return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_website',);

@@ -18,6 +18,20 @@ class BlogController extends Controller
         return $this->render('ChatcodeBlogBundle:Blog:index.html.twig', array('news' => $news));
     }
     
+    public function anewsAction($slug)
+    {
+        $em = $this->getDoctrine()
+                    ->getManager();
+        
+        $news = $em->getRepository('ChatcodeBlogBundle:News')->findBySlug($slug);
+        if(!$news)
+        {
+            throw $this->createNotFoundException('Actu inexistant...');
+        }
+        
+        return $this->render('ChatcodeBlogBundle:Blog:anews.html.twig', array('news' => $news));
+    }
+    
     public function tipAction($slug)
     {
         $repository = $this->getDoctrine()
