@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{% block title %}chat-code.com : le site où chat code dur !{% endblock %}</title>
-    </head>
-    <body>
-        {% block body %}
-        {% endblock %}
-    </body>
-</html>
+{% extends "::layout.html.twig" %}
+
+{% block body %}
+
+    {% for key, message in app.session.flashbag.all() %}
+        <div class="alert alert-{{ key }}">
+            {{ message|trans({}, 'FOSUserBundle') }}
+        </div>
+    {% endfor %}
+
+    {% block fos_user_content %}
+    {% endblock fos_user_content %}
+
+{% endblock %}
