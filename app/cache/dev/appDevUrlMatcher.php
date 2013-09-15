@@ -133,72 +133,69 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/blog')) {
-            // chatcodeblog_home
-            if (rtrim($pathinfo, '/') === '/blog') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'chatcodeblog_home');
-                }
-
-                return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::indexAction',  '_route' => 'chatcodeblog_home',);
+        // chatcodeblog_home
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'chatcodeblog_home');
             }
 
-            if (0 === strpos($pathinfo, '/blog/actus')) {
-                // chatcodeblog_news
-                if ($pathinfo === '/blog/actus') {
-                    return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::indexAction',  '_route' => 'chatcodeblog_news',);
-                }
+            return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::indexAction',  '_route' => 'chatcodeblog_home',);
+        }
 
-                // chatcodeblog_anews
-                if (preg_match('#^/blog/actus/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'chatcodeblog_anews')), array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::anewsAction',));
-                }
-
+        if (0 === strpos($pathinfo, '/actus')) {
+            // chatcodeblog_news
+            if ($pathinfo === '/actus') {
+                return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::indexAction',  '_route' => 'chatcodeblog_news',);
             }
 
-            // chatcodeblog_website
-            if ($pathinfo === '/blog/site-du-jour') {
-                return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_website',);
+            // chatcodeblog_anews
+            if (preg_match('#^/actus/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'chatcodeblog_anews')), array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::anewsAction',));
             }
 
-            // chatcodeblog_tutorials
-            if ($pathinfo === '/blog/tutoriels') {
-                return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_tutorials',);
+        }
+
+        // chatcodeblog_website
+        if ($pathinfo === '/site-du-jour') {
+            return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_website',);
+        }
+
+        // chatcodeblog_tutorials
+        if ($pathinfo === '/tutoriels') {
+            return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_tutorials',);
+        }
+
+        // chatcodeblog_resources
+        if ($pathinfo === '/ressources') {
+            return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_resources',);
+        }
+
+        // chatcodeblog_contact
+        if ($pathinfo === '/contact') {
+            return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_contact',);
+        }
+
+        if (0 === strpos($pathinfo, '/a')) {
+            // chatcodeblog_tips
+            if ($pathinfo === '/astuces') {
+                return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_tips',);
             }
 
-            // chatcodeblog_resources
-            if ($pathinfo === '/blog/ressources') {
-                return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_resources',);
+            // chatcodeblog_addtips
+            if ($pathinfo === '/ajouter') {
+                return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::addtipsAction',  '_route' => 'chatcodeblog_addtips',);
             }
 
-            // chatcodeblog_contact
-            if ($pathinfo === '/blog/contact') {
-                return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_contact',);
+            // chatcodeblog_tip
+            if (0 === strpos($pathinfo, '/astuces') && preg_match('#^/astuces/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'chatcodeblog_tip')), array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipAction',));
             }
 
-            if (0 === strpos($pathinfo, '/blog/a')) {
-                // chatcodeblog_tips
-                if ($pathinfo === '/blog/astuces') {
-                    return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipsAction',  '_route' => 'chatcodeblog_tips',);
-                }
+        }
 
-                // chatcodeblog_addtips
-                if ($pathinfo === '/blog/ajouter') {
-                    return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::addtipsAction',  '_route' => 'chatcodeblog_addtips',);
-                }
-
-                // chatcodeblog_tip
-                if (0 === strpos($pathinfo, '/blog/astuces') && preg_match('#^/blog/astuces/(?P<slug>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'chatcodeblog_tip')), array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::tipAction',));
-                }
-
-            }
-
-            // chatcodeblog_sites
-            if ($pathinfo === '/blog/sites-du-jour') {
-                return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::sitesAction',  '_route' => 'chatcodeblog_sites',);
-            }
-
+        // chatcodeblog_sites
+        if ($pathinfo === '/sites-du-jour') {
+            return array (  '_controller' => 'chatcode\\BlogBundle\\Controller\\BlogController::sitesAction',  '_route' => 'chatcodeblog_sites',);
         }
 
         // chatcodeadmin_home

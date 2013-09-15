@@ -1,6 +1,6 @@
 chatcode_blog:
     resource: "@ChatcodeBlogBundle/Resources/config/routing.yml"
-    prefix:   /blog
+    prefix:   /
     
 chatcode_admin:
     resource: "@ChatcodeAdminBundle/Resources/config/routing.yml"
